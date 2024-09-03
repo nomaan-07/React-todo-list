@@ -3,7 +3,7 @@ import Buttons from './Buttons';
 import Form from './Form';
 import TodoList from './TodoList';
 
-export default function Main({ tasks, onSetTasks }) {
+export default function Main({ tasks, onSetTasks, sortBy, onSortTasks }) {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   function handleToggleForm() {
@@ -29,13 +29,19 @@ export default function Main({ tasks, onSetTasks }) {
 
   return (
     <main>
-      <Buttons onToggleForm={handleToggleForm} isFormOpen={isFormOpen} />
+      <Buttons
+        onToggleForm={handleToggleForm}
+        isFormOpen={isFormOpen}
+        sortBy={sortBy}
+        onSortTasks={onSortTasks}
+      />
       {isFormOpen && <Form onAddTask={handleAddTask} />}
       {tasks.length > 0 ? (
         <TodoList
           tasks={tasks}
           onDeleteTask={handleDeleteTask}
           onCompleteTask={handleCompleteTask}
+          sortBy={sortBy}
         />
       ) : (
         <div></div>

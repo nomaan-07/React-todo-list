@@ -1,7 +1,12 @@
 import Button from './Button';
 import FilterSelect from './FilterSelect';
 
-export default function Buttons({ onToggleForm, isFormOpen }) {
+export default function Buttons({
+  onToggleForm,
+  isFormOpen,
+  sortBy,
+  onSortTasks,
+}) {
   return (
     <div className="buttons">
       <Button
@@ -11,7 +16,7 @@ export default function Buttons({ onToggleForm, isFormOpen }) {
         {isFormOpen ? 'Close Form' : 'Add New'}
       </Button>
       <Button bgColorClass="pink">Clear List</Button>
-      <FilterSelect />
+      <FilterSelect sortBy={sortBy} onSortTasks={onSortTasks} />
     </div>
   );
 }
