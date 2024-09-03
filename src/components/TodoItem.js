@@ -1,9 +1,13 @@
-export default function TodoItem() {
+export default function TodoItem({ task, onDeleteTask, onCompleteTask }) {
   return (
     <li>
-      <input type="checkbox" />
-      <p>Go to work</p>
-      <span>❌</span>
+      <input
+        type="checkbox"
+        value={task.completed}
+        onChange={() => onCompleteTask(task.id)}
+      />
+      <p className={task.completed ? 'completed' : ''}>{task.task}</p>
+      <span onClick={() => onDeleteTask(task.id)}>❌</span>
     </li>
   );
 }

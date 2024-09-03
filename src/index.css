@@ -136,6 +136,10 @@ form button {
   gap: 1rem;
   font-size: 2rem;
 }
+.todo-list .completed {
+  color: #aaa4a4;
+  text-decoration: line-through;
+}
 
 .todo-list span {
   font-size: 1.6rem;
