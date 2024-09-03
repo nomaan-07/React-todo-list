@@ -16,6 +16,9 @@ export default function Main({ tasks, onSetTasks, sortBy, onSortTasks }) {
   }
 
   function handleDeleteTask(id) {
+    const confirmed = window.confirm('Are you sure?');
+    if (!confirmed) return;
+
     onSetTasks((tasks) => tasks.filter((task) => task.id !== id));
   }
 
@@ -27,12 +30,19 @@ export default function Main({ tasks, onSetTasks, sortBy, onSortTasks }) {
     );
   }
 
+  function handleClearList() {
+    const confirmed = window.confirm('Are you sure?');
+    confirmed && onSetTasks([]);
+  }
+
   return (
     <main>
       <Buttons
+        tasks={tasks}
         onToggleForm={handleToggleForm}
         isFormOpen={isFormOpen}
         sortBy={sortBy}
+        onClearList={handleClearList}
         onSortTasks={onSortTasks}
       />
       {isFormOpen && <Form onAddTask={handleAddTask} />}

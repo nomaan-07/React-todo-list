@@ -1,10 +1,12 @@
 import Button from './Button';
-import FilterSelect from './FilterSelect';
+import SortSelect from './SortSelect';
 
 export default function Buttons({
+  tasks,
   onToggleForm,
   isFormOpen,
   sortBy,
+  onClearList,
   onSortTasks,
 }) {
   return (
@@ -15,8 +17,14 @@ export default function Buttons({
       >
         {isFormOpen ? 'Close Form' : 'Add New'}
       </Button>
-      <Button bgColorClass="pink">Clear List</Button>
-      <FilterSelect sortBy={sortBy} onSortTasks={onSortTasks} />
+      {tasks.length > 0 && (
+        <>
+          <Button bgColorClass="pink" onClick={onClearList}>
+            Clear List
+          </Button>
+          <SortSelect sortBy={sortBy} onSortTasks={onSortTasks} />
+        </>
+      )}
     </div>
   );
 }

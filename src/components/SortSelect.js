@@ -1,7 +1,7 @@
-export default function FilterSelect({ sortBy, onSortTasks }) {
+export default function SortSelect({ sortBy, onSortTasks }) {
   return (
     <div className="select-wrapper">
-      <label>Filter: </label>
+      <label>Sort: </label>
       <select value={sortBy} onChange={(e) => onSortTasks(e.target.value)}>
         <option value="default">all</option>
         <option value="todo">todo</option>
