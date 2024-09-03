@@ -1,3 +1,7 @@
-export default function Button({ bgColorClass, children }) {
-  return <button className={`btn ${bgColorClass}`}>{children}</button>;
+export default function Button({ bgColorClass, onClick, children }) {
+  return (
+    <button onClick={onClick} className={`btn ${bgColorClass}`}>
+      {children}
+    </button>
+  );
 }
