@@ -23,7 +23,7 @@ ul {
 header {
   background-color: #21cfaf;
   color: #fff;
-  padding: 2rem 0;
+  padding: 2rem;
   font-size: 2.4rem;
   display: flex;
   align-items: center;
@@ -151,4 +151,17 @@ form button {
   cursor: pointer;
   width: 1.6rem;
   height: 1.6rem;
+}
+
+footer {
+  background-color: #abe6ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 2rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

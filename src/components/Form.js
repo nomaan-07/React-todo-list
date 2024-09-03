@@ -7,7 +7,7 @@ export default function Form({ onAddTask }) {
   function handleAddTask(e) {
     e.preventDefault();
 
-    if (!task) return;
+    if (!task.trim()) return;
 
     const newTask = {
       id: crypto.randomUUID(),
@@ -23,10 +23,11 @@ export default function Form({ onAddTask }) {
     <form>
       <label>Task</label>
       <input
+        autoFocus
         type="text"
         placeholder="Your task ..."
         value={task}
-        onChange={(e) => setTask(e.target.value.trim())}
+        onChange={(e) => setTask(e.target.value)}
       />
 
       <Button onClick={handleAddTask} bgColorClass="green">
